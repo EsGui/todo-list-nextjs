@@ -1,0 +1,7 @@
+.DivFatherHomeHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    padding: 10px;
+}
