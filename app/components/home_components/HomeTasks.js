@@ -73,15 +73,21 @@ export default function HomeTasks() {
                                     (!inputEdit.activate) ?
                                     <p>{ tasks.task }</p>
                                     :
+                                    (Number(inputEdit.taskId) == Number(tasks.id)) ?
                                     <input onChange={({ target: { value } }) => editTasks(tasks.id, value) } type="text" placeholder="Editar texto" />
+                                    :
+                                    <p>{ tasks.task }</p>
                                 }
                             </div>
                             <div>
                                 {
-                                    (!inputEdit.activate) ? 
+                                    (!inputEdit.activate) ?
                                     <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
                                     :
+                                    (Number(inputEdit.taskId) == Number(tasks.id)) ?
                                     <button onClick={ () => activateInputEdit(tasks.id) } type="button">Salvar</button>
+                                    :
+                                    <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
                                 }
                                 <button onClick={ () => deleteTasks(tasks.id) } type="button">Deletar</button>
                             </div>
