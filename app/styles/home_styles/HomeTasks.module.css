@@ -1,0 +1,39 @@
+.DivInputHomeTasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px
+}
+
+.DivInputHomeTasks input {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+    border-right: none
+}
+
+.DivInputHomeTasks button {
+    padding: 10px;
+    border: none;
+    background-color: yellow;
+    border: 1px solid black;
+    border-left: none;
+    width: 10%;
+    cursor: pointer
+}
+
+.DivTasksHomeTasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.DivIndividualHomeTasks  {
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    justify-content: space-around;
+}
