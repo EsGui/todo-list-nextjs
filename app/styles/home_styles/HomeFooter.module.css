@@ -22,3 +22,9 @@
 .DivRedesHomeFooter img {
     width: 50px;
 }
+
+@media screen and (max-width: 550px) {
+    .DivRedesHomeFooter img {
+        width: 25px;
+    }
+}

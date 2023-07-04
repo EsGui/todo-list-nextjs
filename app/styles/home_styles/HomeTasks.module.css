@@ -25,6 +25,8 @@
 
 .DivTasksHomeTasks {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -32,14 +34,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.DivIndividualHomeTasks div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 500px;
+    margin-bottom: 20px;
 }
 
 .DivIndividualHomeTasks div > button {
@@ -61,4 +56,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.DivTasksListHomeTasks  {
+    width: 500px;
+    display: flex;
+    justify-content: start;
+}
+
+.DivTasksButtonHomeTasks {
+    display: flex;
+    max-width: 500px;
+    border: 2px solid red
+}
+
+.DivCheckListHomeTasks  {
+    display: flex;
+    max-width: 500px;
+    border: 2px solid greenyellow;
+}
+
+.DivCheckListHomeTasks div {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 550px) {
+    .DivIndividualHomeTasks {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+    }
+    .DivTasksListHomeTasks {
+        width: 50%;
+        justify-content: center;
+    }
+    .DivTasksButtonHomeTasks {
+        justify-content: center;
+        align-items: center;
+    }
+    .DivInputHomeTasks input {
+        border: 1px solid black;
+        width: 100%;
+    }
+    .DivInputHomeTasks button {
+        width: 30%;
+    }
 }

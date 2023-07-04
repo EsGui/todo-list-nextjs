@@ -13,7 +13,7 @@ export default function HomeTasks() {
     const [idTask, setIdTask] = useState(-1);
 
     const inputTasks = ({ target: { value } }) => {
-        if (value.length > 0 && value.length < 50) {
+        if (value.length > 0 && value.length < 30) {
             setTasks(value)
         }
     };
@@ -78,10 +78,17 @@ export default function HomeTasks() {
                         {
                             listTasks.map((tasks) => (
                                 <div className={ styles.DivIndividualHomeTasks }>
-                                    <div>
+                                    <div className={ styles.DivTasksListHomeTasks }>
                                         {
                                             (!inputEdit.activate) ?
-                                            <p>{ tasks.task }</p>
+                                            <div className={ styles.DivCheckListHomeTasks }>
+                                                <div>
+                                                    <input type="checkbox" />
+                                                </div>
+                                                <div>
+                                                    <p>{ tasks.task }</p>
+                                                </div>
+                                            </div>
                                             :
                                             (Number(inputEdit.taskId) == Number(tasks.id)) ?
                                             <input onChange={({ target: { value } }) => editTasks(tasks.id, value) } type="text" placeholder="Editar texto" />
@@ -89,7 +96,7 @@ export default function HomeTasks() {
                                             <p>{ tasks.task }</p>
                                         }
                                     </div>
-                                    <div>
+                                    <div className={ styles.DivTasksButtonHomeTasks }>
                                         {
                                             (!inputEdit.activate) ?
                                             <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
