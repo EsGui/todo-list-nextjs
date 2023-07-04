@@ -12,13 +12,14 @@ export default function HomeFooter() {
         <div className={ styles.DivFatherHomeFooter }>
             <div className={ styles.DivRedesHomeFooter }>
                 {
-                    redes.map(({ name, image, link }) => (
-                        <Link style={ styleLink } href={ link }>
-                            <div>
-                                <img src={ image } alt={ name } />
-                                <p>{name}</p>
-                            </div>
-                        </Link>
+                    redes.map(({ name, image, link, linkCreator }) => (
+                        <div>
+                            <Link style={ styleLink } href={ link }>
+                            <img src={ image } alt={ name } />
+                            <p>{name}</p>
+                            </Link>
+                            <Link style={ styleLink } href={ linkCreator }>Perfil do criado do ícone</Link>
+                        </div>
                     ))
                 }
             </div>
