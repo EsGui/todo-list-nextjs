@@ -67,13 +67,11 @@
 .DivTasksButtonHomeTasks {
     display: flex;
     max-width: 500px;
-    border: 2px solid red
 }
 
 .DivCheckListHomeTasks  {
     display: flex;
     max-width: 500px;
-    border: 2px solid greenyellow;
 }
 
 .DivCheckListHomeTasks div {
