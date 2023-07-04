@@ -20,20 +20,45 @@
     border: 1px solid black;
     border-left: none;
     width: 10%;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .DivTasksHomeTasks {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    border: 1px solid black;
 }
 
-.DivIndividualHomeTasks  {
+.DivIndividualHomeTasks {
     display: flex;
-    border: 1px solid black;
-    width: 100%;
     justify-content: space-around;
+    align-items: center;
+}
+
+.DivIndividualHomeTasks div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+.DivIndividualHomeTasks div > button {
+    margin-left: 20px;
+    border: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+
+.DivIndividualHomeTasks div > input {
+    padding: 10px;
+    width: 100%;
+}
+
+.DivNoTasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

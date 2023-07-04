@@ -1,0 +1,24 @@
+.DivFatherHomeFooter  {
+    height: 100px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+    color: white;
+}
+
+.DivRedesHomeFooter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.DivRedesHomeFooter div {
+    text-align: center;
+    cursor: pointer;
+}
+
+.DivRedesHomeFooter img {
+    width: 50px;
+}

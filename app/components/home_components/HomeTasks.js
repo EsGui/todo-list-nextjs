@@ -6,32 +6,40 @@ import styles from '../../styles/home_styles/HomeTasks.module.css'
 export default function HomeTasks() {
     const [tasks, setTasks] = useState("");
     const [listTasks, setListTasks] = useState([]);
-    const [textInputEdit, setTextInputEdit] = useState("");
     const [inputEdit, setInputEdit] = useState({
         activate: false,
         taskId: null,
     });
     const [idTask, setIdTask] = useState(-1);
 
-    const inputTasks = ({ target: { value } }) => setTasks(value);
+    const inputTasks = ({ target: { value } }) => {
+        if (value.length > 0 && value.length < 50) {
+            setTasks(value)
+        }
+    };
 
     const saveTasks = () => {
-        if (tasks.length > 0) {
-            if (listTasks.length > 0) {
-                setListTasks([...listTasks, {
-                    id: listTasks[listTasks.length - 1].id + 1,
-                    task: tasks
-                }]);
+        if (listTasks.length < 6) {
+            if (tasks.length > 0) {
+                if (listTasks.length > 0) {
+                    setListTasks([...listTasks, {
+                        id: listTasks[listTasks.length - 1].id + 1,
+                        task: tasks
+                    }]);
+                } else {
+                    setListTasks([...listTasks, {
+                        id: 0,
+                        task: tasks
+                    }]);
+                }
             } else {
-                setListTasks([...listTasks, {
-                    id: 0,
-                    task: tasks
-                }]);
+                alert("O campo de tarefa não pode estar vazio")
             }
+            setTasks("");
         } else {
-            alert("O campo de tarefa não pode estar vazio")
+            alert("Limite de tarefas atingidas");
+            setTasks("");
         }
-        setTasks("");
     };
 
     const deleteTasks = (idTask) => 
@@ -64,37 +72,44 @@ export default function HomeTasks() {
                 <input value={ tasks } onChange={ inputTasks } type="search" placeholder="Digite aqui sua tarefa" />
                 <button onClick={ saveTasks } type="button">Salvar</button>
             </div>
-            <div className={ styles.DivTasksHomeTasks }>
-                {
-                    listTasks.map((tasks) => (
-                        <div className={ styles.DivIndividualHomeTasks }>
-                            <div>
-                                {
-                                    (!inputEdit.activate) ?
-                                    <p>{ tasks.task }</p>
-                                    :
-                                    (Number(inputEdit.taskId) == Number(tasks.id)) ?
-                                    <input onChange={({ target: { value } }) => editTasks(tasks.id, value) } type="text" placeholder="Editar texto" />
-                                    :
-                                    <p>{ tasks.task }</p>
-                                }
-                            </div>
-                            <div>
-                                {
-                                    (!inputEdit.activate) ?
-                                    <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
-                                    :
-                                    (Number(inputEdit.taskId) == Number(tasks.id)) ?
-                                    <button onClick={ () => activateInputEdit(tasks.id) } type="button">Salvar</button>
-                                    :
-                                    <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
-                                }
-                                <button onClick={ () => deleteTasks(tasks.id) } type="button">Deletar</button>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+            {   
+                (listTasks.length > 0) ? 
+                    <div className={ styles.DivTasksHomeTasks }>
+                        {
+                            listTasks.map((tasks) => (
+                                <div className={ styles.DivIndividualHomeTasks }>
+                                    <div>
+                                        {
+                                            (!inputEdit.activate) ?
+                                            <p>{ tasks.task }</p>
+                                            :
+                                            (Number(inputEdit.taskId) == Number(tasks.id)) ?
+                                            <input onChange={({ target: { value } }) => editTasks(tasks.id, value) } type="text" placeholder="Editar texto" />
+                                            :
+                                            <p>{ tasks.task }</p>
+                                        }
+                                    </div>
+                                    <div>
+                                        {
+                                            (!inputEdit.activate) ?
+                                            <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
+                                            :
+                                            (Number(inputEdit.taskId) == Number(tasks.id)) ?
+                                            <button onClick={ () => activateInputEdit(tasks.id) } type="button">Salvar</button>
+                                            :
+                                            <button onClick={ () => activateInputEdit(tasks.id) } type="button">Editar</button>
+                                        }
+                                        <button onClick={ () => deleteTasks(tasks.id) } type="button">Deletar</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                :
+                <div className={ styles.DivNoTasks }>
+                    <h1>Suas tarefas</h1>
+                </div>
+            }
         </div>
     )
 }
